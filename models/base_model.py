@@ -13,7 +13,7 @@ class BaseModel:
     def __init__(self, *args, **kwargs):
         """
             Initializes instance attribute
-        
+
             Args:
                 - *args: lists of arguments
                 - **kwargs: list s of keyword arguments
@@ -35,8 +35,6 @@ class BaseModel:
             self.updated_at = datetime.now()
             storage.new(self)
 
-
-
     def __str__(self):
         """Returns string representation of instance"""
         return f"[{self.__class__.__name__}] ({self.id}) {self.__dict__}"
@@ -52,10 +50,9 @@ class BaseModel:
 
         return obj_dict
 
-
     def save(self):
         """Update the updated_at attribute with the current datetime."""
         self.updated_at = datetime.now()
         storage.save()
-        
+
 
