@@ -9,7 +9,7 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = "(hbnb) "
 
-    def do_quite(self,line):
+    def do_quit(self, line):
         """Quit command do exit the program"""
         return True
 
@@ -25,3 +25,4 @@ class HBNBCommand(cmd.Cmd):
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
+
