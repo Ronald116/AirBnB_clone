@@ -19,15 +19,15 @@ class BaseModel:
                 - **kwargs: list s of keyword arguments
         """
         if kwargs:
-            for key, value in kwargs.items():
+            for key in kwargs
                 if key == 'created_at':
                     self.__dict__['created_at'] = datetime.strptime(
-                            kwargs(value), "%Y-%m-%dT%H:%M:%S.%f")
+                            kwargs['created_at'], "%Y-%m-%dT%H:%M:%S.%f")
                 elif key == 'updated_at':
                     self.__dict__['updated_at'] = datetime.strptime(
-                            kwargs(value), "%Y-%m-%dT%H:%M:%S.%f")
+                            kwargs['updated_at'], "%Y-%m-%dT%H:%M:%S.%f")
                 else:
-                    self.__dict__[key] = kwargs(value)
+                    self.__dict__[key] = kwargs[key]
 
         else:
             self.id = str(uuid.uuid4())
@@ -47,7 +47,6 @@ class BaseModel:
         obj_dict['__class__'] = self.__class__.__name__
         obj_dict['created_at'] = self.created_at.isoformat()
         obj_dict['updated_at'] = self.updated_at.isoformat()
-
         return obj_dict
 
     def save(self):
