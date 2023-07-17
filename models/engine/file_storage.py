@@ -5,6 +5,7 @@ import json
 import datetime
 from os.path import exists
 
+
 class FileStorage:
     """
     a class FileStorage that serializes instances to a JSON file
@@ -31,7 +32,6 @@ class FileStorage:
         with open(self.__file_path, 'w') as file:
             json.dump(obj_dict, file)
 
-
     def reload(self):
         """Deserialize the JSON file to __objects (if it exists)."""
         if exists(self.__file_path):
@@ -49,3 +49,4 @@ class FileStorage:
                     class_ = getattr(module, class_name)
                     instance = class_(**value)
                     self.__objects[key] = instance
+
